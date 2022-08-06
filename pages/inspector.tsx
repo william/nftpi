@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { ZDK, ZDKNetwork, ZDKChain } from "@zoralabs/zdk";
 import { NFTPreview, MediaConfiguration } from '@zoralabs/nft-components';
-import { Networks, Strategies } from "@zoralabs/nft-hooks"
+import { Networks, Strategies, useNFT } from "@zoralabs/nft-hooks"
 
 const networkInfo = {
   network: ZDKNetwork.Ethereum,
@@ -33,6 +33,9 @@ const Inspector: NextPage = () => {
     "contractAddress": "0x7e6663E45Ae5689b313e6498D22B041f4283c88A",
     "tokenId": "1"
   })
+
+  const {data} = useNFT("0x7e6663E45Ae5689b313e6498D22B041f4283c88A", "1")
+  // const { data } = useNFT(asksNFT.contractAddress, asksNFT.tokenId)
 
   return (
     <div>
@@ -160,6 +163,13 @@ const Inspector: NextPage = () => {
             showPerpetual={false}
           />
         </MediaConfiguration>
+
+        <form>
+          <label>Metadata</label>
+          <pre>
+            {JSON.stringify(data.metadata, null, 2) }
+          </pre>
+        </form>
 
       </main>
     </div>
