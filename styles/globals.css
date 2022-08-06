@@ -26,9 +26,10 @@ a {
   font-size: 15px;
   display: inline-block;
   width: 100%;
+  padding-bottom: 300px;
 }
 
-#inspector * {
+#inspector .zora-cardOuter {
   margin: 0 auto;
 }
 

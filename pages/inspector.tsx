@@ -430,25 +430,6 @@ const Inspector: NextPage = () => {
                 showPerpetual={false}
               />
             </MediaConfiguration>
-            <br/>
-            <p>
-              <a
-                href={`https://etherscan.io/address/${asksNFT.contractAddress}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Etherscan
-              </a>
-            </p>
-            <p>
-              <a
-                href={`https://opensea.io/assets/ethereum/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                OpenSea
-              </a>
-            </p>
           </div>
         </div>
 
