@@ -306,7 +306,7 @@ const Inspector: NextPage = () => {
   })
 
   return (
-    <div className='flex flex-col justify-center h-full min-h-screen'>
+    <div>
       <Head>
         <title>NFT Private Investigator</title>
         <meta name="description" content="An NFT Inspection Tool" />
