@@ -449,63 +449,6 @@ const Inspector: NextPage = () => {
                 OpenSea
               </a>
             </p>
-            <div className="w-full flex flex-row flex-wrap justify-center">
-              <div className="justify-center flex flex-row w-full">
-              </div>
-
-              <div className="flex flex-row flex-wrap w-full justify-center">
-                {zmmAsksApprovalCheck() === false ? (
-                <div className="mt-2 flex w-full justify-center">
-                  <button
-                    onClick={() => asksZMMWrite()}
-                    className="w-fit hover:bg-white hover:text-black border-2 border-white border-solid p-1 mt-1"
-                  >
-                    APPROVE ASKS MODULE
-                  </button>
-                </div>
-                ) : (
-                <div className="mt-2 flex w-full justify-center">
-                  <button disabled={true}  className="w-fit border-2 border-slate-600 text-slate-400 border-solid p-1 mt-1">
-                    ASK MODULE APPROVED ✅
-                  </button>
-                </div>
-                )}
-                {transferHelperDataBoolAsks() === false ? (
-                <div className="mt-2 flex w-full justify-center">
-                  <button
-                    onClick={() => asksTransferHelperWrite()}
-                    className="w-fit hover:bg-white hover:text-black border-2 border-white border-solid p-1 mt-1"
-                  >
-                    APPROVE TRANSFER HELPER
-                  </button>
-                </div>
-                ) : (
-                <div className="mt-2 flex w-full justify-center">
-                  <button disabled={true}  className="w-fit border-2 border-slate-600 text-slate-400 border-solid p-1 mt-1">
-                    TRANSFER HELPER APPROVED ✅
-                  </button>
-                </div>
-                )}
-              </div>
-
-            </div>
-          </div>
-          <div className="mt-8 flex flex-row flex-wrap w-full ">
-            <div className="w-full">
-              <div className="ml-2 mb-2 text-xl">
-                ASK MODULE READS
-              </div>
-              <AskRead_disclosure nft={asksNFT} />
-              {/* <AskForNFT_READ nft={asksNFT} /> */}
-            </div>
-          </div>
-          <div className="mt-5 flex flex-row flex-wrap w-full ">
-            <div className="flex flex-row flex-wrap w-full">
-              <div className="ml-2 mb-2 text-xl">
-                ASK MODULE WRITES
-              </div>
-              <AskWrite_disclosure nft={asksNFT} />
-            </div>
           </div>
         </div>
 

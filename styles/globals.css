@@ -25,6 +25,7 @@ a {
   font-family: Georgia,serif;
   font-size: 15px;
   display: inline-block;
+  width: 100%;
 }
 
 #inspector * {
