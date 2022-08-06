@@ -23,7 +23,7 @@ a {
   background-color: lightgray;
   color: black;
   font-family: Georgia,serif;
-  font-size: 15px;
+  font-size: 16px;
   display: inline-block;
   width: 100%;
   padding-bottom: 300px;
@@ -58,9 +58,9 @@ a {
 
 #inspector form input {
   border: 1px solid black;
-  padding: 2px 15px;
+  padding: 0.5em 1em;
   line-break: normal;
-  width: 400px;
+  width: 26em;
   display: inline-block;
   font-family: inherit;
   font-size: inherit;
