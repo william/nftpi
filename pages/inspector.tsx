@@ -316,11 +316,7 @@ const Inspector: NextPage = () => {
       {/* <Header /> */}
       <main id="inspector">
         <h1>NFTPI🕵️‍♂️</h1>
-
-        <div className='mt-24 sm:mt-10 flex flex-row flex-wrap content-start'>
-
           {/* NFT RENDERING + CONTRACT INPUTS */}
-          <div className="mt-2  w-full h-fit flex flex-row flex-wrap justify-center ">
             <MediaConfiguration
               networkId="1"
               strategy={zdkStrategyMainnet}
@@ -430,9 +426,6 @@ const Inspector: NextPage = () => {
                 showPerpetual={false}
               />
             </MediaConfiguration>
-          </div>
-        </div>
-
       </main>
     </div>
   )
