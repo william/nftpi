@@ -34,8 +34,7 @@ const Inspector: NextPage = () => {
     "tokenId": "1"
   })
 
-  const {data} = useNFT("0x7e6663E45Ae5689b313e6498D22B041f4283c88A", "1")
-  // const { data } = useNFT(asksNFT.contractAddress, asksNFT.tokenId)
+  const { data } = useNFT(asksNFT.contractAddress, asksNFT.tokenId)
 
   return (
     <div>
@@ -167,7 +166,7 @@ const Inspector: NextPage = () => {
         <form>
           <label>Metadata</label>
           <pre>
-            {JSON.stringify(data.metadata, null, 2) }
+            {JSON.stringify(typeof(data) !== 'undefined' ? data.metadata : null, null, 2) }
           </pre>
         </form>
 
