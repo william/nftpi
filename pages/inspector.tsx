@@ -316,116 +316,122 @@ const Inspector: NextPage = () => {
       {/* <Header /> */}
       <main id="inspector">
         <h1>NFTPI🕵️‍♂️</h1>
-          {/* NFT RENDERING + CONTRACT INPUTS */}
-            <MediaConfiguration
-              networkId="1"
-              strategy={zdkStrategyMainnet}
-              strings={{
-                CARD_OWNED_BY: "",
-                CARD_CREATED_BY: "",
-              }}
-              style={{
-                theme: {
-                  previewCard: {
-                    background: "black",
-                    height: "300px",
-                    width: "300px"
-                  },
-                  defaultBorderRadius: 0,
-                  lineSpacing: 0,
-                  textBlockPadding: "0"
-                },
-              }}
-            >
-              <form>
-                <div>
-                  <label htmlFor="inputContract">
-                    Contract Address
-                  </label>
-                  <input
-                    placeholder="ContractAddress"
-                    name="contractAddress"
-                    type="text"
-                    value={asksNFT.contractAddress}
-                    onChange={(e) => {
-                        e.preventDefault();
-                        setAsksNFT(current => {
-                          return {
-                            ...current,
-                            contractAddress: e.target.value
-                          }
-                        })
-                    }}
-                    required
-                  >
-                  </input>
-                </div>
-                <div>
-                  <label htmlFor="input">
-                    Token ID
-                  </label>
-                  <input
-                    placeholder="Input Token ID "
-                    name="tokenId"
-                    type="text"
-                    value={asksNFT.tokenId}
-                    onChange={(e) => {
-                        e.preventDefault();
-                        setAsksNFT(current => {
-                          return {
-                            ...current,
-                            tokenId: e.target.value
-                          }
-                        })
-                    }}
-                    required
-                  >
-                  </input>
-                </div>
-                <div>
-                  <label>
-                    Etherscan
-                  </label>
-                  <a
-                    href={`https://etherscan.io/address/${asksNFT.contractAddress}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {`https://etherscan.io/address/${asksNFT.contractAddress}`}
-                  </a>
-                </div>
-                <div>
-                  <label>
-                    OpenSea
-                  </label>
-                  <a
-                    href={`https://opensea.io/assets/ethereum/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {`https://opensea.io/assets/ethereum/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
-                  </a>
-                </div>
-                <div>
-                  <label>
-                    Rarible
-                  </label>
-                  <a
-                    href={`https://rarible.com/token/${asksNFT.contractAddress}:${asksNFT.tokenId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {`https://rarible.com/token/${asksNFT.contractAddress}:${asksNFT.tokenId}`}
-                  </a>
-                </div>
-              </form>
-              <NFTPreview
-                contract={asksNFT.contractAddress}
-                id={asksNFT.tokenId}
-                showBids={false}
-                showPerpetual={false}
-              />
-            </MediaConfiguration>
+        <MediaConfiguration
+          networkId="1"
+          strategy={zdkStrategyMainnet}
+          strings={{
+            CARD_OWNED_BY: "",
+            CARD_CREATED_BY: "",
+          }}
+          style={{
+            theme: {
+              previewCard: {
+                background: "black",
+                height: "300px",
+                width: "300px"
+              },
+              defaultBorderRadius: 0,
+              lineSpacing: 0,
+              textBlockPadding: "0"
+            },
+          }}
+        >
+          <form>
+
+            <div>
+              <label htmlFor="inputContract">
+                Contract Address
+              </label>
+              <input
+                placeholder="ContractAddress"
+                name="contractAddress"
+                type="text"
+                value={asksNFT.contractAddress}
+                onChange={(e) => {
+                    e.preventDefault();
+                    setAsksNFT(current => {
+                      return {
+                        ...current,
+                        contractAddress: e.target.value
+                      }
+                    })
+                }}
+                required
+              >
+              </input>
+            </div>
+
+            <div>
+              <label htmlFor="input">
+                Token ID
+              </label>
+              <input
+                placeholder="Input Token ID "
+                name="tokenId"
+                type="text"
+                value={asksNFT.tokenId}
+                onChange={(e) => {
+                    e.preventDefault();
+                    setAsksNFT(current => {
+                      return {
+                        ...current,
+                        tokenId: e.target.value
+                      }
+                    })
+                }}
+                required
+              >
+              </input>
+            </div>
+
+            <div>
+              <label>
+                Etherscan
+              </label>
+              <a
+                href={`https://etherscan.io/address/${asksNFT.contractAddress}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {`https://etherscan.io/address/${asksNFT.contractAddress}`}
+              </a>
+            </div>
+
+            <div>
+              <label>
+                OpenSea
+              </label>
+              <a
+                href={`https://opensea.io/assets/ethereum/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {`https://opensea.io/assets/ethereum/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
+              </a>
+            </div>
+
+            <div>
+              <label>
+                Rarible
+              </label>
+              <a
+                href={`https://rarible.com/token/${asksNFT.contractAddress}:${asksNFT.tokenId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {`https://rarible.com/token/${asksNFT.contractAddress}:${asksNFT.tokenId}`}
+              </a>
+            </div>
+          </form>
+
+          <NFTPreview
+            contract={asksNFT.contractAddress}
+            id={asksNFT.tokenId}
+            showBids={false}
+            showPerpetual={false}
+          />
+        </MediaConfiguration>
+
       </main>
     </div>
   )
