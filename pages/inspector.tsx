@@ -113,6 +113,16 @@ const Inspector: NextPage = () => {
             </div>
 
             <div>
+              <label>Preview</label>
+                <NFTPreview
+                  contract={asksNFT.contractAddress}
+                  id={asksNFT.tokenId}
+                  showBids={false}
+                  showPerpetual={false}
+                />
+            </div>
+
+            <div>
               <label>
                 Etherscan
               </label>
@@ -151,15 +161,6 @@ const Inspector: NextPage = () => {
               </a>
             </div>
 
-            <div>
-              <label>Preview</label>
-                <NFTPreview
-                  contract={asksNFT.contractAddress}
-                  id={asksNFT.tokenId}
-                  showBids={false}
-                  showPerpetual={false}
-                />
-            </div>
           </form>
 
         </MediaConfiguration>
