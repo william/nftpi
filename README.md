@@ -1,5 +1,5 @@
 # NFTPI🕵️‍♂️
-#### An NFT inspector utility hewn from https://github.com/0xTranqui/zora-starter-kit
+#### An NFT inspector utility hewn from https://github.com/0xTranqui/zora-starter-kit for https://zora.ethglobal.com/ Metabolism hackathon.
 ##### Version 0.1.1
 ##### Published August 7, 2022
 ---
@@ -17,3 +17,5 @@ npm install
 ```
 npm run dev
 ```
+
+Go to http://localhost:3000/inspector
