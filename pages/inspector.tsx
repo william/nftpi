@@ -50,17 +50,14 @@ const Inspector: NextPage = () => {
         <MediaConfiguration
           networkId="1"
           strategy={zdkStrategyMainnet}
-          strings={{
-            CARD_OWNED_BY: "",
-            CARD_CREATED_BY: "",
-          }}
           style={{
             theme: {
               previewCard: {
-                background: "black",
+                background: "lightgray",
                 height: "300px",
                 width: "300px"
               },
+              linkColor: "black",
               defaultBorderRadius: 0,
               lineSpacing: 0,
               textBlockPadding: "0"
@@ -153,21 +150,27 @@ const Inspector: NextPage = () => {
                 {`https://rarible.com/token/${asksNFT.contractAddress}:${asksNFT.tokenId}`}
               </a>
             </div>
+
+            <div>
+              <label>Preview</label>
+                <NFTPreview
+                  contract={asksNFT.contractAddress}
+                  id={asksNFT.tokenId}
+                  showBids={false}
+                  showPerpetual={false}
+                />
+            </div>
           </form>
 
-          <NFTPreview
-            contract={asksNFT.contractAddress}
-            id={asksNFT.tokenId}
-            showBids={false}
-            showPerpetual={false}
-          />
         </MediaConfiguration>
 
         <form>
-          <label>Metadata</label>
-          <pre>
-            {JSON.stringify(typeof(data) !== 'undefined' ? data.metadata : null, null, 2) }
-          </pre>
+          <div>
+            <label>Metadata</label>
+            <pre>
+              {JSON.stringify(typeof(data) !== 'undefined' ? data.metadata : null, null, 2) }
+            </pre>
+          </div>
         </form>
 
       </main>

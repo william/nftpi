@@ -30,7 +30,14 @@ a {
 }
 
 #inspector .zora-cardOuter {
-  margin: 0 auto;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+
+#inspector .zora-cardMediaWrapper {
+  width: auto;
+  height: auto;
 }
 
 #inspector h1 {
@@ -40,7 +47,7 @@ a {
 }
 
 #inspector form {
-  margin: 50px auto;
+  margin: 0 auto;
   width: 100%;
 }
 
