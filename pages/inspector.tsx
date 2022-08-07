@@ -29,9 +29,11 @@ const Inspector: NextPage = () => {
     tokenId: string
   }
 
+  const [marketPlaceURL, setMarketPlaceURL] = useState("");
+
   const [ asksNFT, setAsksNFT] = useState<nftInfo>({
-    "contractAddress": "0x7e6663E45Ae5689b313e6498D22B041f4283c88A",
-    "tokenId": "1"
+    "contractAddress": "",
+    "tokenId": ""
   })
 
   const { data } = useNFT(asksNFT.contractAddress, asksNFT.tokenId)
@@ -71,12 +73,13 @@ const Inspector: NextPage = () => {
                 Contract Address
               </label>
               <input
-                placeholder="ContractAddress"
+                placeholder="0x..."
                 name="contractAddress"
                 type="text"
                 value={asksNFT.contractAddress}
                 onChange={(e) => {
                     e.preventDefault();
+                    setMarketPlaceURL("")
                     setAsksNFT(current => {
                       return {
                         ...current,
@@ -94,12 +97,13 @@ const Inspector: NextPage = () => {
                 Token ID
               </label>
               <input
-                placeholder="Input Token ID "
+                placeholder="e.g. 1"
                 name="tokenId"
                 type="text"
                 value={asksNFT.tokenId}
                 onChange={(e) => {
                     e.preventDefault();
+                    setMarketPlaceURL("")
                     setAsksNFT(current => {
                       return {
                         ...current,
@@ -108,6 +112,37 @@ const Inspector: NextPage = () => {
                     })
                 }}
                 required
+              >
+              </input>
+            </div>
+
+            <div>
+              <label htmlFor="input">
+                OR ... Marketplace URL
+              </label>
+              <input
+                placeholder="NFT page from OpenSea, Rarible, Etc"
+                name="marketPlaceURL"
+                type="text"
+                value={marketPlaceURL}
+                onChange={(e) => {
+                    e.preventDefault();
+                    console.log(typeof(e.target.value))
+                    if (e.target.value === "" || e.target.value === null) {
+                      return
+                    }
+                    setMarketPlaceURL(e.target.value)
+                    const [contractAddress] = e.target.value.match(/0x[a-f0-9]+/ig)
+                    console.log(e.target.value)
+                    const tokenId = e.target.value.match(/[\:\/][1-9][0-9]*/igm)[0].substring(1)
+                    console.log(tokenId)
+                    setAsksNFT(current => {
+                      return {
+                        contractAddress: contractAddress,
+                        tokenId: tokenId,
+                      }
+                    })
+                }}
               >
               </input>
             </div>
@@ -137,6 +172,19 @@ const Inspector: NextPage = () => {
 
             <div>
               <label>
+                Zora
+              </label>
+              <a
+                href={`https://zora.co/collections/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {`https://zora.co/collections/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
+              </a>
+            </div>
+
+            <div>
+              <label>
                 OpenSea
               </label>
               <a
@@ -161,13 +209,27 @@ const Inspector: NextPage = () => {
               </a>
             </div>
 
+            <div>
+              <label>
+                Nifty Gateway
+              </label>
+              <a
+                href={`https://www.niftygateway.com/marketplace/item/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {`https://www.niftygateway.com/marketplace/item/${asksNFT.contractAddress}/${asksNFT.tokenId}`}
+              </a>
+            </div>
+
+
           </form>
 
         </MediaConfiguration>
 
         <form>
           <div>
-            <label>Metadata</label>
+            <label>Normalized Metadata</label>
             <pre>
               {JSON.stringify(typeof(data) !== 'undefined' ? data.metadata : null, null, 2) }
             </pre>
